@@ -1,13 +1,10 @@
-// ================= IMPORT PACKAGES =================
-
 import express from "express"
 import dotenv from "dotenv"
 import connectDB from "./config/connectDb.js";
-// const mongoose = require("mongoose");
-// const dotenv = require("dotenv");
-// const cors = require("cors");
-// const cookieParser = require("cookie-parser");
-
+import cookieParser from "cookie-parser";
+import cors from "cors"
+import authRouter from "./routes/auth.route.js";
+import userRouter from "./routes/user.route.js"
 // ================= CONFIG =================
 dotenv.config(); // Load .env file
 
@@ -15,19 +12,19 @@ const app = express();
 
 
 // ================= MIDDLEWARE =================
-// app.use(express.json()); // To read JSON data
-// app.use(cors()); // Allow frontend connection
-// app.use(cookieParser()); // To read cookies
+app.use(express.json()); // To read JSON data
+app.use(cors({
+    origin:"http://localhost:5173/",
+    credentials:true
+})); // Allow frontend connection
+app.use(cookieParser()); // To read cookies
+
+app.use("/api/auth" , authRouter)
+app.use("/api/user", userRouter)
 
 
 // ================= SERVER =================
 const PORT = process.env.PORT || 5000; 
-
-
-// ================= ROUTES =================
-app.get("/", (req, res) => {
-    res.send("Backend is running 🚀");
-});
 
 app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
