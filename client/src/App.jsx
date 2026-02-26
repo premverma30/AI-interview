@@ -1,13 +1,21 @@
-// App.jsx
-
 import React from "react";
+import {Route, Routes} from 'react-router-dom'
+import Home from "./pages/Home";
+import Auth from "./pages/Auth"
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-      <p>This is my React app.</p>
-    </div>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/auth' element={<Auth/>}/>
+      {/* <Route path='/interview' element={<InterviewPage/>}/>
+      <Route path='/history' element={<InterviewHistory/>}/>
+      <Route path='/pricing' element={<Pricing/>}/>
+      <Route path='/report/:id' element={<InterviewReport/>}/> */}
+
+
+
+    </Routes>
   );
 }
 
