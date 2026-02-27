@@ -1,9 +1,17 @@
-import React from "react";
-import {Route, Routes} from 'react-router-dom'
-import Home from "./pages/Home";
-import Auth from "./pages/Auth"
+// import React from "react";
+// import {Route, Routes} from 'react-router-dom'
+// import Home from "./pages/Home";
+// import Auth from "./pages/Auth"
 
-export const ServerUrl="http://localhost:5000/" 
+import React, { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import Home from "./pages/Home";
+import Auth from "./pages/Auth";
+import { setUserData } from "./redux/userSlice";
+
+export const ServerUrl="http://localhost:5000" 
 
 function App() {
 

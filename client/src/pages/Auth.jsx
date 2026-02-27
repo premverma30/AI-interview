@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import { BsRobot } from "react-icons/bs";
 import { IoSparkles } from "react-icons/io5";
 import { motion } from "motion/react"
@@ -11,8 +11,12 @@ import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
 function Auth({isModel = false}) {
     const dispatch = useDispatch()
+    const [loading, setLoading] = useState(false)
 
     const handleGoogleAuth = async () => {
+        if (loading) return;
+        setLoading(true);
+
         try {
             const response = await signInWithPopup(auth,provider)
             let User = response.user
@@ -24,6 +28,8 @@ function Auth({isModel = false}) {
         } catch (error) {
             console.log(error)
             dispatch(setUserData(null))
+        } finally {
+            setLoading(false)  // ✅ reset loading
         }
     }
   return (
@@ -67,9 +73,10 @@ function Auth({isModel = false}) {
             onClick={handleGoogleAuth}
             whileHover={{opacity:0.9 , scale:1.03}}
             whileTap={{opacity:1 , scale:0.98}}
-            className='w-full flex items-center justify-center gap-3 py-3 bg-black text-white rounded-full shadow-md '>
+            className='w-full flex items-center justify-center gap-3 py-3 bg-black text-white rounded-full shadow-md '
+            disabled={loading} >
                 <FcGoogle size={20}/>
-                Continue with Google
+               {loading ? "Loading..." : "Continue with Google"}
 
    
             </motion.button>

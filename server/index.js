@@ -14,7 +14,7 @@ const app = express();
 // ================= MIDDLEWARE =================
 app.use(express.json()); // To read JSON data
 app.use(cors({
-    origin:"http://localhost:5173/",
+    origin:"http://localhost:5173",
     credentials:true
 })); // Allow frontend connection
 app.use(cookieParser()); // To read cookies
