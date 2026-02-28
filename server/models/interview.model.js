@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const questionsSchema = new mongoose.Schema({
-     question: String,
+  question: String,
   difficulty: String,
   timeLimit: Number,
   answer: String,

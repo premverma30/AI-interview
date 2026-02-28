@@ -10,8 +10,9 @@ import axios from "axios";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import { setUserData } from "./redux/userSlice";
+import InterviewPage from './pages/InterviewPage'
 
-export const ServerUrl="http://localhost:5000" 
+export const ServerUrl="http://localhost:8000" 
 
 function App() {
 
@@ -33,10 +34,10 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/auth' element={<Auth/>}/>
-      {/* <Route path='/interview' element={<InterviewPage/>}/>
-      <Route path='/history' element={<InterviewHistory/>}/>
+      <Route path='/interview' element={<InterviewPage/>}/>
+      {/* <Route path='/history' element={<InterviewHistory/>}/>
       <Route path='/pricing' element={<Pricing/>}/>
-      <Route path='/report/:id' element={<InterviewReport/>}/> */}
+      <Route path='/report/:id' element={<InterviewReport/>}/>  */}
 
 
 
