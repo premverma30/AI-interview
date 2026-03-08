@@ -6,7 +6,6 @@ import axios from 'axios';
 import { ServerUrl } from '../App';
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
-
 function Pricing() {
   const navigate = useNavigate()
   const [selectedPlan, setSelectedPlan] = useState("free");
@@ -78,7 +77,7 @@ function Pricing() {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: result.data.amount,
       currency: "INR",
-      name: "Eval.ai",
+      name: "InterviewIQ.AI",
       description: `${plan.name} - ${plan.credits} Credits`,
       order_id: result.data.id,
 

@@ -20,7 +20,8 @@ const isAuth = async (req,res,next) => {
 
     } catch (error) {
         return res.status(500).json({message:`isAuth error ${error}`})
-    } 
+    }
+    
 }
 
 export default isAuth

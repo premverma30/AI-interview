@@ -5,6 +5,7 @@ import { analyzeResume, finishInterview, generateQuestion, getInterviewReport, g
 
 
 
+
 const interviewRouter = express.Router()
 
 interviewRouter.post("/resume",isAuth,upload.single("resume"),analyzeResume)
