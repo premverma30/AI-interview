@@ -1,8 +1,9 @@
-import express from "express"
 import dotenv from "dotenv"
+dotenv.config()
+//console.log("OPENROUTER_API_KEY:", process.env.OPENROUTER_API_KEY);
+import express from "express"
 import connectDb from "./config/connectDb.js"
 import cookieParser from "cookie-parser"
-dotenv.config()
 import cors from "cors"
 import authRouter from "./routes/auth.route.js"
 import userRouter from "./routes/user.route.js"
